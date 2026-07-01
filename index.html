@@ -1,0 +1,29 @@
+{% include "base.html" %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Username</th>
+      <th scope="col">Password</th>
+      <th scope="col">DateTIme</th>
+      <th scope="col">Change</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in all_users%}
+    <tr>
+      <th scope="row">{{ loop.index}}</th>
+      <td>{{ user.username }}</td>
+      <td>{{ user.password }}</td>
+      <td>{{ user.datetime }}</td>
+      <td><a href="/update/{{user.sno}}" class="btn btn-primary">Update</a></td>
+      <td><a href="/delete/{{user.sno}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
+
+   
